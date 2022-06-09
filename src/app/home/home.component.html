@@ -10,18 +10,34 @@
 
   </div>
 
-  <!-- Resources -->
-  <h2>Guess the number</h2>
+  <!-- Guess the number -->
+  <h2 [class]="cssTitle">Guess the number </h2>
   <p>Write down the lucky number: </p>
-
   <div class="card-container">
-
       <button (click)="changeTitle()" [disabled]="modify">Number</button>
       <input type="number" [(ngModel)]="number" [value]="number" />
   </div>
   <div [ngClass]="{blue:number===8,red:number!=8}">
   {{title}}
   </div>
+    <!-- [ngStyle]:An attribute directive that updates styles for the containing HTML element.-->
+  <div class="input-number"> 
+  <div [ngStyle]="{'font-size':tamano +'rem'}">Addtion</div>
+  <input type="number"[(ngModel)]="op1">
+  <input type="number"[(ngModel)]="op2">
+</div>
+  <button (click)="sum()" >Sum</button>
+  <!-- *ngIf="condition"-->
+  <div *ngIf="result>0">The number is positive</div>
+  <div *ngIf="result<0">The number is negative</div>
+  <div [hidden]="result<0||result>0">The result is going to be displayed here</div>
+  <div [ngClass]="{red:result<0,blue:result>0}" class="cssClassResult result">{{result}}</div>
+  <!-- *ngFor=""-->
+  <h2>Clue</h2>
+  <div *ngFor="let idea of idea"><li>{{idea.name}}</li></div>
+
+  <button (click)="changeProduct()">The number is...</button>
+
 
 
   <!-- Footer -->
